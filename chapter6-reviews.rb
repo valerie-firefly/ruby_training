@@ -6,4 +6,11 @@ lines=[]
 file.open("reviews.txt") do |review_file|
     lines = review_file.readlines
 end
-review_file.close
+
+lines.each do |line|
+    if line.include?("Truncated")
+        relevant_lines << line
+    end
+end
+
+puts relevant_lines
